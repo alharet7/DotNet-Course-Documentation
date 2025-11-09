@@ -136,7 +136,6 @@ An **IoC (Inversion of Control) Container** is a framework or tool that:
 
 In short: **You tell it what you need, and it wires everything up for you.**
 
----
 
 ### 🧩 Why Do We Need It?
 
@@ -197,8 +196,8 @@ You don’t new anything—.NET ***does it*** for you.
 
 ```
 public class OrdersController : Controller {
-    private readonly OrderService _orderService;
-    public OrdersController(OrderService orderService) {
+    private readonly IOrderService _orderService;
+    public OrdersController(IOrderService orderService) {
         _orderService = orderService;
     }
 }
