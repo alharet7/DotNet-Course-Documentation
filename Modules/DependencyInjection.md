@@ -167,6 +167,12 @@ IoC containers automate all of this.
 ```
 services.AddScoped<IOrderRepository, SqlOrderRepository>();
 services.AddTransient<OrderService>();
+
+OR
+
+var service = new EmailService();
+var controller = new UserController(service);
+
 ```
 
 - ***AddScoped***: One instance per request
