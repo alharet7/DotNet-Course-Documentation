@@ -144,6 +144,11 @@ Before IoC containers, you had to do this manually:
 ```
 var repo = new SqlOrderRepository();
 var service = new OrderService(repo);
+
+OR
+
+var service = new EmailService();
+var controller = new UserController(service);
 ```
 
 That’s fine for small apps, but in real-world projects:
@@ -168,17 +173,10 @@ IoC containers automate all of this.
 services.AddScoped<IOrderRepository, SqlOrderRepository>();
 services.AddTransient<OrderService>();
 
-OR
-
-var service = new EmailService();
-var controller = new UserController(service);
-
 ```
 
 - ***AddScoped***: One instance per request
-
 - ***AddTransient***: New instance every time
-
 - ***AddSingleton***: One instance for the whole app
 
 2. Inject Dependencies
